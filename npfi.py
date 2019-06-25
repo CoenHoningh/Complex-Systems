@@ -146,6 +146,7 @@ def npfi(pdfs, dt, bounds=(-np.inf, np.inf), logarithmic=True,
         dt2 = dt ** 2
     else:
         dt2 = dt[0] * dt[1]
+    print(dt2)
 
     diagonal = len(pdfs) == 3
     if logarithmic: # Define FIM using Eq. (1)
@@ -198,13 +199,16 @@ def npfi(pdfs, dt, bounds=(-np.inf, np.inf), logarithmic=True,
 
     # Compute the integral
     FIM, int_err = quad(fim, bounds[0], bounds[1], args=(pdfs, dt2), limit=200)
+    print(FIM)
+    print(dt2)
+    print("----")
 
     if verbose:
         print("Estimation of the FIM took: %.2f seconds" % (timeit.default_timer()-start))
 
     if N is not None:
-        epsilon = np.sqrt(2.0 / (N * FIM * dt2))
-        return FIM, int_err, epsilon
+#         epsilon = np.sqrt(2.0 / (N * FIM * dt2))
+        return FIM, int_err
     return FIM, int_err, None
 
 def npfi_1d(pdfs, dt, bounds=(-np.inf, np.inf), logarithmic=True,
