@@ -1,3 +1,5 @@
+# The inleveren directory contains all final code/data used for the project with documentation, the notebooks in the root directory are unused and unmaintained and left for archiving purposes.
+
 This project contains five ipython notebook files simulating the Gray-Scott reaction diffusion model. Each file contains the code to run the simulation.
 
 Contributors:
